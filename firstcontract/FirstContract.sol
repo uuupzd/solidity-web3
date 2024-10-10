@@ -6,7 +6,7 @@ contract FistConctract{
     uint public counter;
 
     //创建get函数
-    function get() public view returns(uint x){
+    function get() public view returns(uint){
         return counter;
     }
 
