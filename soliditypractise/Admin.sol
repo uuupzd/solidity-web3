@@ -3,17 +3,17 @@ pragma solidity ^0.8.5;
 
 import "./IBank.sol";
 
-contract Admin{
+contract Admin {
     address public owner;
 
     //定义构造函数，将合约部署者设置为owner;
-    constructor(){
+    constructor() {
         owner = msg.sender;
     }
 
     //允许owner调用modifier
-    modifier OnlyOwner(){
-        require(msg.sender == owner,"Only owner can call this function");
+    modifier OnlyOwner() {
+        require(msg.sender == owner, "Only owner can call this function");
         _;
     }
 
@@ -25,7 +25,9 @@ contract Admin{
     }
 
     //获取admin合约的余额
-    function getAdminBalance() public view returns(uint) {
+    function getAdminBalance() public view returns (uint256) {
         return address(this).balance;
     }
+
+    receive() external payable {}
 }
