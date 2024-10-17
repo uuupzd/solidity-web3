@@ -16,11 +16,4 @@ contract TokenBankV2 is TokenBank{
         deposits[_from] += _value;
         emit Deposited(_from, _value);
     }
-
-    //使用transferWithCallBack存入
-    function depositWithCallback(uint _value) public {
-        require(_value > 0, "Deposit amount must be greater than 0");
-        token.transferWithCallback(address(this), _value);
-    }
-
 }
