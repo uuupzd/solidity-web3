@@ -91,4 +91,35 @@ contract BaseERC20 {
         // write your code here
         return allowances[_owner][_spender];
     }
+
+    function transferWithCallback(address _to, uint256 _value)
+        public
+        returns (bool success)
+    {
+        require(
+            balances[msg.sender] >= _value,
+            "ERC20: transfer amount exceeds balance"
+        );
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+
+        emit Transfer(msg.sender, _to, _value);
+
+        if (isContract(_to)) {
+            IERC1363Receiver(_to).tokensReceived(msg.sender, _value);
+        }
+        return true;
+    }
+
+    function isContract(address account) internal view returns (bool) {
+        uint256 size;
+        assembly {
+            size := extcodesize(account)
+        }
+        return size > 0;
+    }
+}
+
+interface IERC1363Receiver {
+    function tokensReceived(address sender, uint256 amount) external;
 }

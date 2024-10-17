@@ -20,13 +20,4 @@ contract SafeTest is Test {
 
         assertEq(preBalance + 1 ether, postBalance);
     }
-
-    function testWithDrawFuzz(uint96 amount) public {
-        payable(address(safe)).transfer(1 ether);
-        uint preBalance = address(this).balance;
-        safe.withDraw();
-        uint postBalance = address(this).balance;
-
-        assertEq(preBalance + 1 ether, postBalance);
-    }
 }
