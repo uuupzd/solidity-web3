@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/utils/Address.sol";
-import "@openzeppelin/contracts/utils/Context.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import "openzeppelin-contracts/contracts/utils/Address.sol";
+import "openzeppelin-contracts/contracts/utils/Context.sol";
+import "openzeppelin-contracts/utils/Strings.sol";
+import "openzeppelin-contracts/token/ERC721/IERC721Receiver.sol";
 
 contract BaseERC721 {
     using Strings for uint256;
@@ -348,7 +348,7 @@ contract BaseERC721 {
         uint256 tokenId,
         bytes memory _data
     ) private returns (bool) {
-        if (to.isContract()) {
+    //    if (to.isContract()) {
             try
                 IERC721Receiver(to).onERC721Received(
                     msg.sender,
@@ -369,9 +369,9 @@ contract BaseERC721 {
                     }
                 }
             }
-        } else {
-            return true;
-        }
+        // } else {
+        //     return true;
+        //  }
     }
 }
 
