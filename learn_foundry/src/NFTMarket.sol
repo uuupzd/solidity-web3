@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.5;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "./BaseERC20.sol";
+import "openzeppelin-contracts/contracts/token/ERC721/IERC721.sol";
+import "openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
+import "./BaseERC20V2.sol";
 
 //部署账号：0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
 //购买账号：0x617F2E2fD72FD9D5503197092aC168c91465E7f2
