@@ -9,9 +9,7 @@ import "./IBank.sol";
 //0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB 3 eth
 //0x617F2E2fD72FD9D5503197092aC168c91465E7f2 4 eth
 
-
-
-contract Bank2 is IBank {
+contract BankV2 is IBank {
     address public admin;
     mapping(address => uint256) deposits;
     struct TopDepositor {
@@ -24,8 +22,13 @@ contract Bank2 is IBank {
         admin = msg.sender;
     }
 
+    function setAdmin(address addr) public {
+        require(addr != address(0), "address can not be 0");
+        admin = addr;
+    }
+
     //接收eth
-    receive() external payable virtual{
+    receive() external payable virtual {
         require(msg.value > 0, "You must send some ETH");
         deposits[msg.sender] += msg.value;
         updateDepositors(msg.sender, deposits[msg.sender]);
