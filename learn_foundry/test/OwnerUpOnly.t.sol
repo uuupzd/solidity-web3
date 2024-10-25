@@ -16,10 +16,12 @@ contract OwnerUpOnlyTest is Test{
         assertEq(upOnly.count(), 0);
         upOnly.increment();
         assertEq(upOnly.count(), 1);
+        upOnly.increment();
+        assertEq(upOnly.count(), 2);
     }
 
     function testFailIncrementAsNotOwner() public {
-        //vm.expectRevert(Unauthorized.selector);
+        // vm.expectRevert(Unauthorized.selector);
         vm.prank(address(0));
         upOnly.increment();
     }

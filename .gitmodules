@@ -6,4 +6,4 @@
 	url = https://github.com/transmissions11/solmate
 [submodule "learn_foundry/lib/openzeppelin-contracts"]
 	path = learn_foundry/lib/openzeppelin-contracts
-	url = https://github.com/openzeppelin/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts

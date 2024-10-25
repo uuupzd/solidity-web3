@@ -80,6 +80,8 @@ contract NFTMarket {
             token.balanceOf(msg.sender) >= listing.price,
             "Insufficient token balance"
         );
+
+        require(listing.seller != msg.sender, "Cannot buy your own NFT");
         //转账给NFT持有者
         token.transferFrom(msg.sender, listing.seller, listing.price);
         //NFT持有者将NFT转让给买家
