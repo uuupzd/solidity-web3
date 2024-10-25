@@ -5,11 +5,13 @@ import "forge-std/Test.sol";
 import "../src/BaseERC20V2.sol";
 import "../src/KKNFT.sol";
 import "../src/NFTMarket.sol";
+import "../src/NFTReceiver.sol";
 
 contract NFTMarketTest is Test {
     BaseERC20 public token;
     KKNFT public nft;
     NFTMarket public market;
+    NFTReceiver public receiver;
 
     address[] public allowedTokens;
 
@@ -21,6 +23,7 @@ contract NFTMarketTest is Test {
         nft = new KKNFT(seller);
         allowedTokens.push(address(token));
         market = new NFTMarket(allowedTokens);
+        receiver = new NFTReceiver();
 
         //mint nft to seller
         vm.startPrank(seller);
@@ -98,8 +101,31 @@ contract NFTMarketTest is Test {
     // Test case: Test various token amounts for listing
     function testFuzzRandomPriceListtings(uint randomPrice) public {
         vm.prank(seller);
+        // The price in the nft market list must be greater than 0, so start from 1
         vm.assume(randomPrice >= 1 && randomPrice <= 100);
         market.list(address(nft), 0, randomPrice);
+    }
+
+    // Test case: And randomly use any address to purchase NFT
+    function testFuzzRandomAddressListings(address randomAddress) public {
+        // Make sure randomAddress is the receiving contract address
+        randomAddress = address(receiver);
+
+        vm.prank(seller);
+        market.list(address(nft), 0, 100);
+
+        token.transfer(randomAddress, 100);
+        vm.startPrank(randomAddress);
+        token.approve(address(market), 100);
+        market.buyNFT(address(nft), 0, address(token));
+
+        assertEq(nft.ownerOf(0), randomAddress);
+        (address listedSeller, , bool isListed) = market.listings(
+            address(nft),
+            0
+        );
+        assertEq(listedSeller, address(0));
+        assertTrue(!isListed);
     }
 
     // Test case: Buy NFT with insufficient payment
@@ -148,6 +174,6 @@ contract NFTMarketTest is Test {
         market.buyNFT(address(nft), 0, address(token));
 
         uint marketBalance = token.balanceOf(address(market));
-        assertEq(marketBalance,0);
+        assertEq(marketBalance, 0);
     }
 }
