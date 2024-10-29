@@ -1,6 +1,6 @@
 import { http, stringify } from 'viem';
 import { mainnet } from 'viem/chains';
-import { publicClient } from './client.js';
+import { publicClient } from './client.ts';
 
 publicClient.watchBlockNumber({
     onBlockNumber: (blockNumber) => {

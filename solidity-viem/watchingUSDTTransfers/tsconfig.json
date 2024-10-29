@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "target": "ESNext",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "allowImportingTsExtensions":true,
+        "noEmit":true
+    },
+    "include": ["**/*.ts", "client.ts", "index.ts"],
+    "exclude": ["node_modules"]
+  }
+  
