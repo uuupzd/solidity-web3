@@ -1,5 +1,4 @@
 import { http, stringify } from 'viem';
-import { mainnet } from 'viem/chains';
 import { publicClient } from './client.ts';
 
 publicClient.watchBlockNumber({
