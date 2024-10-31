@@ -4,6 +4,7 @@ pragma solidity ^0.8.20;
 import "./IERC20V2.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
+//sepolia测试网合约地址：0x647939349fd0b08f740df8e7b4b646fcbc87a8b6
 contract ERC20TokenV2 is IERC20V2 {
     using ECDSA for bytes32;
     mapping(address => uint256) public balances;

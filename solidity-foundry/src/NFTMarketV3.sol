@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-//部署命令：forge create NFTMarketV3 --account solidity-foundry  --rpc-url https://ethereum-sepolia-rpc.publicnode.com
 //sepolia测试网合约地址：0x7f3e1b69a9d3d9d1338fd0d49eb0dc587a91f51c
 
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
