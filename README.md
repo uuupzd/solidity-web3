@@ -36,7 +36,7 @@
 
 总结：EOA 账户通过私钥控制，而合约账户的行为由合约内部的逻辑代码控制。EOA 主要用于发送和接收交易，合约账户则可以进行复杂的业务逻辑和自动化操作。EOA 账户仅有余额和 nonce，合约账户有复杂的状态和存储机制。
 
-![image](https://p.ipic.vip/1f27qo.png)
+<img src="https://p.ipic.vip/1f27qo.png" alt="image" style="zoom:25%;" />
 
 ---
 
@@ -50,20 +50,20 @@
 
 ## EVM
 
-![image](https://p.ipic.vip/8s7kvr.png)
+<img src="https://p.ipic.vip/8s7kvr.png" alt="image" style="zoom:25%;" />
 
 ### Gas 手续费
 
 1. **EIP 1559 提案前**：
-   \[
-   \text{Total Fee} = \text{Gas Limit} \times \text{Gas Price}
-   \]
+   
+   - Total Fee = Gas Limit * Gas Price
+   
    - 矿工收益 = Total Fee
 
 2. **EIP 1559 提案后**：
-   \[
-   \text{Total Fee} = \text{Gas Limit} \times (\text{Max Fee} + \text{Max Priority Fee})
-   \]
+   
+   - Total Fee = Gas Limit *  (Max Fee+ Max Priority Fee)
+   
    - 矿工收益（Tips） = Gas Limit × Max Priority Fee
 
 ### EIP 提案主要解决的问题：
