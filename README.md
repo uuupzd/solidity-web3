@@ -42,7 +42,7 @@ EOA账户和合约账户中都有的共同特性
 
 总结：EOA账户通过私钥控制，而合约账户的行为由合约内部的逻辑代码控制，EOA主要用于发送和接受交易，合约账户则可以进行复杂的业务逻辑和自动化操作，EOA账户仅有余额和nonce，合约账户有复杂的状态和存储机制。
 
-<img src="/Users/dingzhao/Library/Application Support/typora-user-images/image-20241104114435271.png" alt="image-20241104114435271" style="zoom: 25%;" />
+<img src="https://p.ipic.vip/1f27qo.png" alt="image-20241104114435271" style="zoom: 25%;" />
 
 
 
@@ -56,7 +56,23 @@ EOA账户和合约账户中都有的共同特性
 
 ## EVM
 
+<img src="https://p.ipic.vip/8s7kvr.png" alt="image-20241104150320934" style="zoom:25%;" />
 
+##### gas手续费
+
+1. EIP 1559 提案前：Total Fee = Gas Limit * Gas Price
+
+   矿工收益 = Total Fee
+
+2. EIP 1559 提案后：Total Fee = Gas Limit * (Max Fee+Max Priority Fee)
+
+   矿工收益（Tips） = Gas Limit×Max Priority Fee
+
+   EIP提案主要解决的问题：
+
+   	1. 避免矿工作恶
+   	1. 降低通胀
+   	1. 体验改善（base fee 扣实际的消耗，用户不用担心被多收费（之前用户需频繁地调整 gas ，或支付过高费用））
 
 
 
