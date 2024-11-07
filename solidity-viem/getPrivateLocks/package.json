@@ -1,12 +1,11 @@
 {
   "name": "getprivatelocks",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "vite"
   },
   "dependencies": {
-    "viem": "latest"
+    "viem": "^2.21.41"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
