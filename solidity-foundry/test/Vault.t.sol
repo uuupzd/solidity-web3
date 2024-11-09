@@ -46,11 +46,11 @@ contract VaultTest is Test {
         assertEq(depositBalance, 0, "Withdraw failed");
     }
 
-    function attack(bytes32 _password, address _newOwner) public {
+    function attack(bytes32 _password, address _owner) public {
         bytes memory data = abi.encodeWithSignature(
             "changeOwner(bytes32,address)",
             _password,
-            _newOwner
+            _owner
         );
         // 触发 Vault 的 fallback 函数
         (bool success, ) = address(vault).call(data);
