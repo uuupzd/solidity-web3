@@ -1,6 +1,26 @@
-No files changed, compilation skipped
+Compiling 1 files with Solc 0.8.28
+Solc 0.8.28 finished in 737.40ms
+Compiler run successful with warnings:
+Warning (2462): Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+ --> src/Vault.sol:9:3:
+  |
+9 |   constructor(bytes32 _password) public {
+  |   ^ (Relevant source part starts here and spans across multiple lines).
 
-Ran 1 test for test/VaultLogic.t.sol:VaultTest
+Warning (2462): Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+  --> src/Vault.sol:30:3:
+   |
+30 |   constructor(address _logicAddress) public {
+   |   ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (6321): Unnamed return variable can remain unassigned. Add an explicit return with value to all non-reverting code paths or name the variable.
+  --> src/Vault.sol:51:45:
+   |
+51 |   function isSolve() external view returns (bool){
+   |                                             ^^^^
+
+
+Ran 1 test for test/Vault.t.sol:VaultTest
 [PASS] testDepositAndWithdraw() (gas: 64347)
 Traces:
   [84247] VaultTest::testDepositAndWithdraw()
@@ -36,6 +56,6 @@ Traces:
     │   └─ ← [Return] 
     └─ ← [Stop] 
 
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.38ms (720.83µs CPU time)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.87ms (1.09ms CPU time)
 
-Ran 1 test suite in 165.46ms (5.38ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+Ran 1 test suite in 164.24ms (5.87ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
