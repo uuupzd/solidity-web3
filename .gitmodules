@@ -3,7 +3,7 @@
 	url = https://github.com/foundry-rs/forge-std
 [submodule "solidity-foundry/lib/solmate"]
 	path = solidity-foundry/lib/solmate
-	url = https://github.com/transmissions11/solmate
+	url = https://github.com/danfinlay/solmate
 [submodule "solidity-foundry/lib/openzeppelin-contracts"]
 	path = solidity-foundry/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts

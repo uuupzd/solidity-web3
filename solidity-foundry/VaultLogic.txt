@@ -1,0 +1,41 @@
+No files changed, compilation skipped
+
+Ran 1 test for test/VaultLogic.t.sol:VaultTest
+[PASS] testDepositAndWithdraw() (gas: 64347)
+Traces:
+  [84247] VaultTest::testDepositAndWithdraw()
+    ├─ [0] VM::deal(VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], 1000000000000000000 [1e18])
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [0] VM::load(Vault: [0x3fC444Cd94a4eA6f6348A656826665ea61C83aFa], 0x0000000000000000000000000000000000000000000000000000000000000001) [staticcall]
+    │   └─ ← [Return] 0x00000000000000000000000073ac20a031083b9eb17e83724ebb6ee5b457f079
+    ├─ [8597] Vault::changeOwner(0x00000000000000000000000073ac20a031083b9eb17e83724ebb6ee5b457f079, VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ [5484] VaultLogic::changeOwner(0x00000000000000000000000073ac20a031083b9eb17e83724ebb6ee5b457f079, VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496]) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Stop] 
+    ├─ [337] Vault::owner() [staticcall]
+    │   └─ ← [Return] VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496]
+    ├─ [0] VM::assertEq(VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], "Owner was not changed correctly!") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [22412] Vault::deposite{value: 1000000000000000000}()
+    │   └─ ← [Stop] 
+    ├─ [496] Vault::deposites(VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496]) [staticcall]
+    │   └─ ← [Return] 1000000000000000000 [1e18]
+    ├─ [0] VM::assertEq(1000000000000000000 [1e18], 1000000000000000000 [1e18], "Deposit amount is incorrect") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [22458] Vault::openWithdraw()
+    │   └─ ← [Stop] 
+    ├─ [7625] Vault::withdraw()
+    │   ├─ [55] VaultTest::receive{value: 1000000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Stop] 
+    ├─ [496] Vault::deposites(VaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::assertEq(0, 0, "Withdraw failed") [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.38ms (720.83µs CPU time)
+
+Ran 1 test suite in 165.46ms (5.38ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
