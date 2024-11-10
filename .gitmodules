@@ -9,3 +9,12 @@
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
 
 	
+[submodule "solidity-foundry/lib/openzeppelin-upgrades"]
+	path = solidity-foundry/lib/openzeppelin-upgrades
+	url = https://github.com/OpenZeppelin/openzeppelin-upgrades
+[submodule "solidity-foundry/lib/openzeppelin-contracts-upgradeable"]
+	path = solidity-foundry/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "solidity-foundry/lib/openzeppelin-foundry-upgrades"]
+	path = solidity-foundry/lib/openzeppelin-foundry-upgrades
+	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
