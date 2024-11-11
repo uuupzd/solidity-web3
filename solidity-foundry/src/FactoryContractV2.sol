@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/proxy/Clones.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "./InscriptionTokenV2.sol";
 
+//https://sepolia.etherscan.io/address/0xf5a63f139275aa7a2a8b39ae2b0db81e2cec21f3#code
 contract FactoryContractV2 is Initializable {
     using Clones for address;
 
