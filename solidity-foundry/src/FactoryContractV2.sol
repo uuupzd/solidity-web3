@@ -23,7 +23,6 @@ contract FactoryContractV2 is Initializable {
         require(msg.sender == owner, "Not the owner");
         _;
     }
-
     function initialize(address _owner) external initializer {
         owner = _owner;
 
@@ -66,7 +65,7 @@ contract FactoryContractV2 is Initializable {
         InscriptionTokenV2(tokenAddr).mint(msg.sender);
     }
 
-    function withDraw() external {
+    function withDraw() external onlyOwner {
         uint balance = address(this).balance;
         require(balance > 0, "No ETH to withdraw");
 

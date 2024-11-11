@@ -1,0 +1,44 @@
+No files changed, compilation skipped
+
+Ran 1 test for test/FactoryContractV1.t.sol:FactoryContractV1Test
+[PASS] testDeployInscriptionV1() (gas: 735303)
+Traces:
+  [735303] FactoryContractV1Test::testDeployInscriptionV1()
+    ├─ [655065] FactoryContractV1::deployInscription("KK Token", "KK", 1000, 10)
+    │   ├─ [616762] → new InscriptionTokenV1@0x104fBc016F4bb334D775a19E8A6510109AC63E00
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: FactoryContractV1: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], value: 1000)
+    │   │   └─ ← [Return] 2286 bytes of code
+    │   ├─ emit TokenDeployed(name: "KK Token", symbol: "KK", totalSupply: 1000, perMint: 10, tokenAddress: FactoryContractV1: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f])
+    │   └─ ← [Return] InscriptionTokenV1: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    ├─ [1196] InscriptionTokenV1::name() [staticcall]
+    │   └─ ← [Return] "KK Token"
+    ├─ [0] VM::assertEq("KK Token", "KK Token", "Token name mismatch") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [1217] InscriptionTokenV1::symbol() [staticcall]
+    │   └─ ← [Return] "KK"
+    ├─ [0] VM::assertEq("KK", "KK", "Token symbol mismatch") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [315] InscriptionTokenV1::totalSupply() [staticcall]
+    │   └─ ← [Return] 1000
+    ├─ [0] VM::assertEq(1000, 1000, "Total supply mismatch") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [563] InscriptionTokenV1::balanceOf(FactoryContractV1: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]) [staticcall]
+    │   └─ ← [Return] 1000
+    ├─ [0] VM::assertEq(1000, 1000, "Factory should hold initial supply") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [2563] InscriptionTokenV1::balanceOf(FactoryContractV1Test: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [46549] FactoryContractV1::mintInscription(InscriptionTokenV1: [0x104fBc016F4bb334D775a19E8A6510109AC63E00])
+    │   ├─ [45904] InscriptionTokenV1::mint(FactoryContractV1Test: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: FactoryContractV1Test: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], value: 10)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Stop] 
+    ├─ [563] InscriptionTokenV1::balanceOf(FactoryContractV1Test: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496]) [staticcall]
+    │   └─ ← [Return] 10
+    ├─ [0] VM::assertEq(10, 10, "Mint amount mismatch") [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.10ms (386.88µs CPU time)
+
+Ran 1 test suite in 1.60s (1.10ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
